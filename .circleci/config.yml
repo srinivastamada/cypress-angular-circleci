@@ -18,7 +18,7 @@ orbs:
             - v1-dependencies-
 
       - run: npm install
-      - run: npm run e2e
+      - run: npm run start
 
       - save_cache:
           paths:
@@ -29,4 +29,4 @@ workflows:
   build:
     jobs:
      - cypress/run:
-         record: true
+         record: false
