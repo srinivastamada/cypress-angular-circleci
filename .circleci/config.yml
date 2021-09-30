@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1
+workflows:
   build:
     docker:
       - image: circleci/node:16
@@ -18,15 +19,14 @@ orbs:
             - v1-dependencies-
 
       - run: npm install
-      - run: npm run start
+      - run: 
+          name: 'Build Project'
+          command: 'npm run start'
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-
-workflows:
-  build:
     jobs:
      - cypress/run:
          record: false
