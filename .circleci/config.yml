@@ -27,8 +27,4 @@ jobs:
           key: 'v1-dependencies-{{ checksum "package.json" }}'
       - run:
           name: 'Build Project'
-          command: 'npm run build'
-      - cypress/run:
-           record: true
-           parallel: true
-           parallelism: 10
+          command: 'npm run build'   
