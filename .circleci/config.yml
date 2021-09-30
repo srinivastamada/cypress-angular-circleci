@@ -24,13 +24,8 @@ orbs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # we need to install CircleCI CLI tool
-      # to run the "manual" tests
-      - cypress/run:
-          record: true
-      - run: npm run e2e
-
 workflows:
-  orb_tests:
+  build:
     jobs:
-    - build
+     - cypress/run:
+         record: true
