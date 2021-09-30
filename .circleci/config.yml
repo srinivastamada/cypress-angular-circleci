@@ -1,4 +1,6 @@
-version: 2
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1.29.0
 jobs:
   build:
     branches:
@@ -19,11 +21,12 @@ jobs:
             - 'v1-dependencies-{{ checksum "package.json" }}'
             - v1-dependencies-
       - run: 'npm install'
-      - run: 'npm run cypress-install'
       - save_cache:
           paths:
             - node_modules
           key: 'v1-dependencies-{{ checksum "package.json" }}'
+      - cypress/run:
+          record: true
       - run:
           name: 'Cypress Automation'
           command: 'npm run e2e'   
