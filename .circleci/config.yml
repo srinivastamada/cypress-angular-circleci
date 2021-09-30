@@ -9,6 +9,8 @@ jobs:
     docker:
       - image: 'circleci/node:16'
     working_directory: ~/repo
+    environment:
+      CYPRESS_CACHE_FOLDER: '~/repo/.cache/Cypress'
 
     steps:
       - checkout
@@ -22,5 +24,8 @@ jobs:
             - node_modules
           key: 'v1-dependencies-{{ checksum "package.json" }}'
       - run:
-          name: 'Build Project'
+          name: 'Cypress Automation'
           command: 'npm run e2e'   
+      - run:
+          name: 'Build Project'
+          command: 'npm run build'
