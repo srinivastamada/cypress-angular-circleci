@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1
+  cypress: cypress-io/cypress@1.29.0
   build:
     docker:
       - image: circleci/node:16
@@ -28,6 +28,7 @@ orbs:
 workflows:
   build:
     jobs:
-     - run: npm run start
      - cypress/run:
-         record: false
+         executor: with-chrome
+         browser: chrome
+         start: npm start
