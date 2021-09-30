@@ -29,4 +29,3 @@ workflows:
     jobs:
      - cypress/run:
          record: true
-     - run: npm run e2e
