@@ -28,3 +28,7 @@ jobs:
       - run:
           name: 'Build Project'
           command: 'npm run build'
+      - cypress/run:
+           record: true
+           parallel: true
+           parallelism: 10
