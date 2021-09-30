@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
-  circleci-cli: circleci/circleci-cli@0.1.9
-jobs:
+  cypress: cypress-io/cypress@1.29.0
   build:
     docker:
       - image: circleci/node:16
@@ -27,7 +26,8 @@ jobs:
 
       # we need to install CircleCI CLI tool
       # to run the "manual" tests
-      - circleci-cli/install
+      - cypress/run:
+          record: true
       - run: npm run e2e
 
 workflows:
