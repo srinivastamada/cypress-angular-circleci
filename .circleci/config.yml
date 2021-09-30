@@ -29,6 +29,4 @@ workflows:
   build:
     jobs:
      - cypress/run:
-         executor: with-chrome
-         browser: chrome
          start: npm start
