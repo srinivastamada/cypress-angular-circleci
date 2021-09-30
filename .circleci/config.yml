@@ -25,8 +25,6 @@ jobs:
           paths:
             - node_modules
           key: 'v1-dependencies-{{ checksum "package.json" }}'
-      - cypress/run:
-          record: true
       - run:
           name: 'Cypress Automation'
           command: 'npm run e2e'   
