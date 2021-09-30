@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "cypress-run":"cypress run",
+    "cypress-run":"./node_modules/cypress/bin/cypress run",
     "e2e": "concurrently \"npm run start\" \"wait-on http-get://localhost:4200 && npm run cypress-run\" --kill-others --success first"
   },
   "private": true,
