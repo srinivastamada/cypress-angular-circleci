@@ -3,16 +3,9 @@ orbs:
   cypress: cypress-io/cypress@1.29.0
 jobs:
   build:
-    branches:
-      only:
-        - master
-      ignore:
-        - develop
     docker:
       - image: 'circleci/node:16'
     working_directory: ~/repo
-    environment:
-      CYPRESS_CACHE_FOLDER: '~/repo/.cache/Cypress'
 
     steps:
       - checkout
@@ -21,6 +14,8 @@ jobs:
             - 'v1-dependencies-{{ checksum "package.json" }}'
             - v1-dependencies-
       - run: 'npm install'
+      - cypress/run:
+          record: true
       - save_cache:
           paths:
             - node_modules
