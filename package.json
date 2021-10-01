@@ -11,7 +11,7 @@
     "app-start": "concurrently \"npm run server\" \"npm run start\" ",
    
     "cypress-run": "cypress run",
-    "e2e": "concurrently \"npm run start\" \"wait-on http-get://localhost:4200 && npm run cypress-run\" --kill-others --success first"
+    "cypress-run-jenkins": "concurrently \"npm run start\" \"wait-on http-get://localhost:4200 && npm run cypress-run\" --kill-others --success first"
   },
   "private": true,
   "dependencies": {
