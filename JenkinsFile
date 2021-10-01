@@ -1,5 +1,8 @@
 pipeline {
    agent any
+    options {
+        ansiColor('xterm')
+    }
       environment {
          PATH='/usr/local/bin:/usr/bin:/bin'
       }
