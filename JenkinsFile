@@ -10,15 +10,27 @@ pipeline {
       }
    }
 
-   stage('NPM Build') {
+   stage('Karma Tests') {
    steps {
-      sh 'npm run build'
+     echo 'Karma tests'
      } 
   }
 
    stage('Cypress Tests') {
    steps {
       sh 'npm run cypress-run-jenkins'
+     } 
+  }
+
+   stage('NPM Build') {
+   steps {
+      sh 'npm run build'
+     } 
+  }
+
+  stage('Deploy') {
+   steps {
+      echo 'Deploy'
      } 
   }
 
